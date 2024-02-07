@@ -11,7 +11,7 @@ const domainGenerator = () => {
     const noun = ['jogger', 'racoon', 'elephant','ant','guy','dog','cat','pub'];
     const domain = ['.com', '.es', '.org', '.us','.net',]
 
-    return `${pronoun[randomIndex(pronoun)]}${adj[randomIndex(adj)]}${noun[randomIndex(noun)]}${domain[randomIndex(domain)]}`;
+    return `Your new domain name is: "${pronoun[randomIndex(pronoun)]}${adj[randomIndex(adj)]}${noun[randomIndex(noun)]}${domain[randomIndex(domain)]}"`;
 }
 
 const randomIndex = (array) => {
