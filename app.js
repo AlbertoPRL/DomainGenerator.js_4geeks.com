@@ -1,5 +1,5 @@
-function start(){
-    getCombinations();
+function start(){  
+    domainGenerator();
 }
 
 const domainGenerator = () => {
