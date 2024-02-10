@@ -6,7 +6,7 @@ const domainGenerator = () => {
     const pronoun = ['the', 'our'];
     const adj = ['great', 'big'];
     const noun = ['jogger', 'racoon'];
-    const domain = ['.com', '.es']
+    const domain = ['.com', '.es'];
 
     let arrays = [pronoun, adj, noun, domain];
     let result = [];
