@@ -1,37 +1,29 @@
-
-const readline = require('readline');
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-});
-
 function start(){
-  
-    askQuestion();
+    getCombinations();
 }
 
 const domainGenerator = () => {
-    const pronoun = ['the', 'our', 'one'];
-    const adj = ['great', 'big','amazing','thirsty','dizzy',];
-    const noun = ['jogger', 'racoon', 'elephant','ant','guy','dog','cat','pub'];
-    const domain = ['.com', '.es', '.org', '.us','.net',]
+    const pronoun = ['the', 'our'];
+    const adj = ['great', 'big'];
+    const noun = ['jogger', 'racoon'];
+    const domain = ['.com', '.es']
 
-    return `Your new domain name is: "${pronoun[randomIndex(pronoun)]}${adj[randomIndex(adj)]}${noun[randomIndex(noun)]}${domain[randomIndex(domain)]}"`;
+    let arrays = [pronoun, adj, noun, domain];
+    let result = [];
+    getCombinations(arrays, result, 0, []);
+
+    console.log(result);
 }
 
-const randomIndex = (array) => {
-    return Math.floor(Math.random() * array.length);
+function getCombinations(arrays, result, index, current) {
+    if (index === arrays.length) {
+      result.push([...current]);
+      return;
+    }
+    for (let i = 0; i < arrays[index].length; i++) {
+      current[index] = arrays[index][i];
+      getCombinations(arrays, result, index + 1, current);
+    }
 }
-
-const askQuestion = () => {
-    rl.question("Type 'yes' to generate a random domain. Type 'no' to terminate: ", (userAnswer) => {
-        if (userAnswer.toLowerCase() === "yes") {
-            console.log(domainGenerator());
-            askQuestion();
-        } else {
-            rl.close();
-        }
-    });
-};
 
 start();
